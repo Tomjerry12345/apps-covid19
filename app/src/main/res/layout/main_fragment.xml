@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tomjerry.appscovid19.ui.main.MainViewModel" />
+
+    </data>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/srlSet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ScrollView
+                    android:id="@+id/scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <include
+                        layout="@layout/dashboard" />
+
+                    <include
+                        android:id="@+id/info_covid"
+                        layout="@layout/info_covid"
+                     />
+
+                    <include
+                        layout="@layout/data_statistik" />
+
+                    <include
+                        android:id="@+id/card_identification"
+                        layout="@layout/card_identification" />
+
+                </FrameLayout>
+
+                </ScrollView>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</layout>
