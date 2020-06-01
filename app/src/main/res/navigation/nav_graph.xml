@@ -3,11 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/mainFragment"
+    tools:ignore="UnusedNavigation">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.tomjerry.appscovid19.ui.main.MainFragment"
         android:label="main_fragment"
-        tools:layout="@layout/main_fragment" />
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_identifikasiFragment"
+            app:destination="@id/identifikasiFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/identifikasiFragment"
+        android:name="com.tomjerry.appscovid19.ui.identifikasi.IdentifikasiFragment"
+        android:label="identifikasi_fragment"
+        tools:layout="@layout/identifikasi_fragment" >
+        <action
+            android:id="@+id/action_identifikasiFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

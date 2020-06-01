@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <variable
-            name="viewModel"
+            name="mainViewModel"
             type="com.tomjerry.appscovid19.ui.main.MainViewModel" />
 
     </data>

@@ -7,7 +7,7 @@
     <data>
         <import type="android.view.View"/>
         <variable
-            name="viewModel"
+            name="mainViewModel"
             type="com.tomjerry.appscovid19.ui.main.MainViewModel" />
 
     </data>
@@ -32,8 +32,8 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{viewModel.message}"
-                android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}"
+                android:text="@{mainViewModel.message}"
+                android:visibility="@{mainViewModel.loading ? View.VISIBLE : View.GONE}"
                 android:layout_gravity="center"
                 android:textColor="@color/white" />
 
@@ -53,8 +53,8 @@
                         android:id="@+id/kasus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.kasusIndonesia}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.kasusIndonesia}"
                         android:textColor="@color/white" />
 
                     <com.google.android.material.textview.MaterialTextView
@@ -62,8 +62,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.jmKasusIndonesia}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.jmKasusIndonesia}"
                         android:textColor="@color/white" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -76,16 +76,16 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.meninggalIndonesia}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.meninggalIndonesia}"
                         android:textColor="@color/white" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.jmMeninggalIndonesia}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.jmMeninggalIndonesia}"
                         android:textColor="@color/white" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -98,16 +98,16 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.sembuhIndonesia}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.sembuhIndonesia}"
                         android:textColor="@color/white" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.jmSembuhIndonesia}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.jmSembuhIndonesia}"
                         android:textColor="@color/white" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -115,10 +115,10 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Indonesia"
-                    android:textSize="18dp"
+                    android:text="@string/indonesia"
+                    android:textSize="18sp"
                     android:layout_marginTop="14dp"
-                    android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
+                    android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
                     android:textColor="@color/white"
                     android:layout_gravity="center" />
 
@@ -126,9 +126,9 @@
                     android:gravity="end"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="10-09-2018"
-                    android:textSize="12dp"
-                    android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
+                    android:text="@{mainViewModel.dateIndonesia}"
+                    android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                    android:textSize="12sp"
                     android:textColor="@color/white"
                     android:layout_marginTop="4dp" />
 
@@ -152,8 +152,8 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{viewModel.message}"
-                android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}"
+                android:text="@{mainViewModel.message}"
+                android:visibility="@{mainViewModel.loading ? View.VISIBLE : View.GONE}"
                 android:layout_gravity="center"
                 android:textColor="@color/white" />
 
@@ -172,16 +172,16 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.kasusMakassar}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.kasusMakassar}"
                         android:textColor="@color/white" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.jmKasusMakassar}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.jmKasusMakassar}"
                         android:textColor="@color/white" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -194,16 +194,16 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.meninggalMakassar}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.meninggalMakassar}"
                         android:textColor="@color/white" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.jmMeninggalMakassar}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.jmMeninggalMakassar}"
                         android:textColor="@color/white" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -216,26 +216,26 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.sembuhMakassar}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.sembuhMakassar}"
                         android:textColor="@color/white" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
-                        android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
-                        android:text="@{viewModel.jmSembuhMakassar}"
+                        android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                        android:text="@{mainViewModel.jmSembuhMakassar}"
                         android:textColor="@color/white" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Makassar"
-                    android:textSize="18dp"
+                    android:text="@string/makassar"
+                    android:textSize="18sp"
                     android:layout_marginTop="14dp"
-                    android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
+                    android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
                     android:textColor="@color/white"
                     android:layout_gravity="center" />
 
@@ -243,9 +243,9 @@
                     android:gravity="end"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="10-09-2018"
-                    android:textSize="12dp"
-                    android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
+                    android:text="@{mainViewModel.dateMakassar}"
+                    android:visibility="@{mainViewModel.loading ? View.GONE : View.VISIBLE}"
+                    android:textSize="12sp"
                     android:textColor="@color/white"
                     android:layout_marginTop="4dp" />
 

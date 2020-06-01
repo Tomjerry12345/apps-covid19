@@ -4,10 +4,7 @@ import android.graphics.Matrix;
 import android.graphics.Path;
 import android.graphics.RectF;
 
-import com.tomjerry.appscovid19.module.MPAndroidChart.data.CandleEntry;
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.Entry;
-import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.IBubbleDataSet;
-import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.ICandleDataSet;
 import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.ILineDataSet;
 import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.IScatterDataSet;
 
@@ -124,40 +121,6 @@ public class Transformer {
 
     protected float[] valuePointsForGenerateTransformedValuesBubble = new float[1];
 
-    /**
-     * Transforms an List of Entry into a float array containing the x and
-     * y values transformed with all matrices for the BUBBLECHART.
-     *
-     * @param data
-     * @return
-     */
-    public float[] generateTransformedValuesBubble(IBubbleDataSet data, float phaseY, int from, int to) {
-
-        final int count = (to - from + 1) * 2; // (int) Math.ceil((to - from) * phaseX) * 2;
-
-        if (valuePointsForGenerateTransformedValuesBubble.length != count) {
-            valuePointsForGenerateTransformedValuesBubble = new float[count];
-        }
-        float[] valuePoints = valuePointsForGenerateTransformedValuesBubble;
-
-        for (int j = 0; j < count; j += 2) {
-
-            Entry e = data.getEntryForIndex(j / 2 + from);
-
-            if (e != null) {
-                valuePoints[j] = e.getX();
-                valuePoints[j + 1] = e.getY() * phaseY;
-            } else {
-                valuePoints[j] = 0;
-                valuePoints[j + 1] = 0;
-            }
-        }
-
-        getValueToPixelMatrix().mapPoints(valuePoints);
-
-        return valuePoints;
-    }
-
     protected float[] valuePointsForGenerateTransformedValuesLine = new float[1];
 
     /**
@@ -197,41 +160,6 @@ public class Transformer {
     }
 
     protected float[] valuePointsForGenerateTransformedValuesCandle = new float[1];
-
-    /**
-     * Transforms an List of Entry into a float array containing the x and
-     * y values transformed with all matrices for the CANDLESTICKCHART.
-     *
-     * @param data
-     * @return
-     */
-    public float[] generateTransformedValuesCandle(ICandleDataSet data,
-                                                   float phaseX, float phaseY, int from, int to) {
-
-        final int count = (int) ((to - from) * phaseX + 1) * 2;
-
-        if (valuePointsForGenerateTransformedValuesCandle.length != count) {
-            valuePointsForGenerateTransformedValuesCandle = new float[count];
-        }
-        float[] valuePoints = valuePointsForGenerateTransformedValuesCandle;
-
-        for (int j = 0; j < count; j += 2) {
-
-            CandleEntry e = data.getEntryForIndex(j / 2 + from);
-
-            if (e != null) {
-                valuePoints[j] = e.getX();
-                valuePoints[j + 1] = e.getHigh() * phaseY;
-            } else {
-                valuePoints[j] = 0;
-                valuePoints[j + 1] = 0;
-            }
-        }
-
-        getValueToPixelMatrix().mapPoints(valuePoints);
-
-        return valuePoints;
-    }
 
     /**
      * transform a path with all the given matrices VERY IMPORTANT: keep order

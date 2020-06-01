@@ -4,13 +4,20 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     
-    <color name="background_blue_white">#C1D1F2</color>
-    <color name="white">#FFFFFF</color>
+    <color name="bg_blue_white">#C1D1F2</color>
     <color name="blue_dark">#7A77CB</color>
+    <color name="btn_next_color">#79A7F4</color>
 
-    <color name="hijau">#64FFDA</color>
-    <color name="merah">#FF4081</color>
-    <color name="kuning">#FFFF00</color>
-    <color name="biru">#448AFF</color>
+    <color name="green">#3DFFEB</color>
+    <color name="red">#FF3D3D</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="blue">#448AFF</color>
     <color name="grey">#919A9F</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green_dark">#2A8787</color>
+    <color name="blue_light">#79A7F4</color>
+
+    <color name="test">#FFEA00</color>
+
 </resources>

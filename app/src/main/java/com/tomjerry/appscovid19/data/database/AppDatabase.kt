@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.tomjerry.appscovid19.model.*
 
-@Database(entities = [Indonesia::class , Makassar::class , Kasus::class , Sembuh::class , Meninggal::class], version = 1, exportSchema = false)
+@Database(entities = [Indonesia::class , Makassar::class , Kasus::class , Sembuh::class , Meninggal::class , Golongan::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun covidSetDao(): CovidSetDao
 

@@ -3,4 +3,27 @@
     <string name="belum_terindetifikasi">Belum Terindetifikasi</string>
     <string name="mulai_identifikasi">Mulai Identifikasi</string>
     <string name="mulai">Mulai</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pernah_mengunjugi_berada">Pernah mengunjugi / Berada</string>
+    <string name="di_kawasan_yang_terpapar">di kawasan yang terpapar</string>
+    <string name="covid_19_pernah_melakukan">covid 19 / Pernah melakukan</string>
+    <string name="kontak_langsung_dengan">Kontak langsung dengan</string>
+    <string name="penderita_covid19">penderita covid19</string>
+    <string name="iya">Iya</string>
+    <string name="tidak">Tidak</string>
+    <string name="selanjutnya">Selanjutnya</string>
+    <string name="mengalami_salah_satu_penyakit_berikut">Mengalami salah satu penyakit berikut :</string>
+    <string name="sakit_tenggorokanr">- Sakit Tenggorokanr</string>
+    <string name="batuk">- Batuk</string>
+    <string name="pilek">- Pilek</string>
+    <string name="demam_38_c"><![CDATA[- Demam > 38 C]]></string>
+    <string name="sesak_napas_ringan">- Sesak napas ringan</string>
+    <string name="sebelumnya">Sebelumnya</string>
+    <string name="sesak_napas_berat">- Sesak napas berat</string>
+    <string name="pernah_memiliki_riwayat_penyakit_sedang_menderita_penyakit_pneumonia_paru_paru_basah_ispa_infeksi_saluran_pernapasan">- Pernah memiliki riwayat penyakit / sedang menderita penyakit Pneumonia (paru-paru basah) / ISPA(Infeksi Saluran Pernapasan)</string>
+    <string name="selesai">Selesai</string>
+    <string name="indonesia">Indonesia</string>
+    <string name="makassar">Makassar</string>
 </resources>

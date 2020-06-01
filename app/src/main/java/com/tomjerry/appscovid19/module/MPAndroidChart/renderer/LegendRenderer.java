@@ -11,7 +11,6 @@ import com.tomjerry.appscovid19.module.MPAndroidChart.components.Legend;
 import com.tomjerry.appscovid19.module.MPAndroidChart.components.LegendEntry;
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.ChartData;
 import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.IBarDataSet;
-import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.ICandleDataSet;
 import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.IDataSet;
 import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.IPieDataSet;
 import com.tomjerry.appscovid19.module.MPAndroidChart.utils.ColorTemplate;
@@ -160,30 +159,6 @@ public class LegendRenderer extends Renderer {
                                 ColorTemplate.COLOR_NONE
                         ));
                     }
-
-                } else if (dataSet instanceof ICandleDataSet && ((ICandleDataSet) dataSet).getDecreasingColor() !=
-                        ColorTemplate.COLOR_NONE) {
-
-                    int decreasingColor = ((ICandleDataSet) dataSet).getDecreasingColor();
-                    int increasingColor = ((ICandleDataSet) dataSet).getIncreasingColor();
-
-                    computedEntries.add(new LegendEntry(
-                            null,
-                            dataSet.getForm(),
-                            dataSet.getFormSize(),
-                            dataSet.getFormLineWidth(),
-                            dataSet.getFormLineDashEffect(),
-                            decreasingColor
-                    ));
-
-                    computedEntries.add(new LegendEntry(
-                            dataSet.getLabel(),
-                            dataSet.getForm(),
-                            dataSet.getFormSize(),
-                            dataSet.getFormLineWidth(),
-                            dataSet.getFormLineDashEffect(),
-                            increasingColor
-                    ));
 
                 } else { // all others
 

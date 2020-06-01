@@ -2,8 +2,6 @@ package com.tomjerry.appscovid19.module.MPAndroidChart.formatter;
 
 import com.tomjerry.appscovid19.module.MPAndroidChart.components.AxisBase;
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.BarEntry;
-import com.tomjerry.appscovid19.module.MPAndroidChart.data.BubbleEntry;
-import com.tomjerry.appscovid19.module.MPAndroidChart.data.CandleEntry;
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.Entry;
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.PieEntry;
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.RadarEntry;
@@ -112,26 +110,6 @@ public abstract class ValueFormatter implements IAxisValueFormatter, IValueForma
      */
     public String getRadarLabel(RadarEntry radarEntry) {
         return getFormattedValue(radarEntry.getY());
-    }
-
-    /**
-     * Used to draw bubble size labels, calls {@link #getFormattedValue(float)} by default.
-     *
-     * @param bubbleEntry bubble being labeled, also contains X and Y values
-     * @return formatted string label
-     */
-    public String getBubbleLabel(BubbleEntry bubbleEntry) {
-        return getFormattedValue(bubbleEntry.getSize());
-    }
-
-    /**
-     * Used to draw high labels, calls {@link #getFormattedValue(float)} by default.
-     *
-     * @param candleEntry candlestick being labeled
-     * @return formatted string label
-     */
-    public String getCandleLabel(CandleEntry candleEntry) {
-        return getFormattedValue(candleEntry.getHigh());
     }
 
 }

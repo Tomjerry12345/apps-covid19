@@ -2,10 +2,12 @@ package com.tomjerry.appscovid19.ui.main
 
 import android.content.Context
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.findNavController
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.BarData
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.BarDataSet
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.BarEntry
@@ -14,7 +16,7 @@ import com.tomjerry.appscovid19.repository.CovidRepository
 import kotlinx.coroutines.launch
 
 
-class MainViewModel(private val covidRepository : CovidRepository , private val context: Context?) : ViewModel() {
+class MainViewModel(private val covidRepository : CovidRepository) : ViewModel() {
 
     private val TAG: String = "MainActivityTAG"
 
@@ -43,37 +45,47 @@ class MainViewModel(private val covidRepository : CovidRepository , private val 
     private val mJmSembuhMakassar: MutableLiveData<String> = MutableLiveData<String>()
     val jmSembuhMakassar : LiveData<String> = mJmSembuhMakassar
 
-    val mMeninggalMakassar: MutableLiveData<String> = MutableLiveData<String>()
+    private val mMeninggalMakassar: MutableLiveData<String> = MutableLiveData<String>()
     val meninggalMakassar: LiveData<String> = mMeninggalMakassar
-    val mJmMeninggalMakassar: MutableLiveData<String> = MutableLiveData<String>()
+    private val mJmMeninggalMakassar: MutableLiveData<String> = MutableLiveData<String>()
     val jmMeninggalMakassar : LiveData<String> = mJmMeninggalMakassar
 
-    val mLoading: MutableLiveData<Boolean> = MutableLiveData(true)
+    private val mLoading: MutableLiveData<Boolean> = MutableLiveData(true)
     val loading: LiveData<Boolean> = mLoading
 
-    val mDataloading: MutableLiveData<Boolean> = MutableLiveData(true)
+    private val mDataloading: MutableLiveData<Boolean> = MutableLiveData(true)
     val dataLoading: LiveData<Boolean> = mDataloading
 
-    val mMessage: MutableLiveData<String> = MutableLiveData("Sedang Memuat.....")
+    private val mMessage: MutableLiveData<String> = MutableLiveData("Sedang Memuat.....")
     val message: LiveData<String> = mMessage
 
-    val mData: MutableLiveData<BarData> = MutableLiveData()
+    private val mData: MutableLiveData<BarData> = MutableLiveData()
     val lData: LiveData<BarData> = mData
+
+    private val mIdentifikasi: MutableLiveData<String> = MutableLiveData("Belum Terindentifikasi")
+    val identifikasi : LiveData<String> = mIdentifikasi
+
+    private val mDateIndonesia: MutableLiveData<String> = MutableLiveData()
+    val dateIndonesia: LiveData<String> = mDateIndonesia
+
+    private val mDateMakassar: MutableLiveData<String> = MutableLiveData()
+    val dateMakassar: LiveData<String> = mDateMakassar
 
     init {
         getIndonesia()
         getMakassar()
         getStatus()
+        getGolongan()
     }
 
-    fun getIndonesia() {
+    private fun getIndonesia() {
         viewModelScope.launch() {
 
             mLoading.value = true
 
             try {
                 val indonesia = covidRepository.getIndonesia()
-                Log.println(Log.ASSERT, TAG , "indonesiaku : ${indonesia}")
+                Log.println(Log.ASSERT, TAG , "indonesiaku : $indonesia")
                 mKasusIndonesia.value = indonesia?.get(0)?.status
                 mJmKasusIndonesia.value = indonesia?.get(0)?.total
 
@@ -83,6 +95,8 @@ class MainViewModel(private val covidRepository : CovidRepository , private val 
                 mMeninggalIndonesia.value = indonesia?.get(2)?.status
                 mJmMeninggalIndonesia.value = indonesia?.get(2)?.total
 
+                mDateIndonesia.value = indonesia?.get(0)?.updated_at?.substring(0 , 10)
+
                 mLoading.value = false
                 mDataloading.value = false
 
@@ -96,14 +110,14 @@ class MainViewModel(private val covidRepository : CovidRepository , private val 
 
     }
 
-    fun getMakassar() {
+    private fun getMakassar() {
         viewModelScope.launch() {
 
             mLoading.value = true
 
             try {
                 val makassar = covidRepository.getMakassar()
-                Log.println(Log.ASSERT, TAG , "makassarku : ${makassar}")
+                Log.println(Log.ASSERT, TAG , "makassarku : $makassar")
                 mKasusMakassar.value = makassar?.get(0)?.status
                 mJmKasusMakassar.value = makassar?.get(0)?.total
 
@@ -113,6 +127,8 @@ class MainViewModel(private val covidRepository : CovidRepository , private val 
                 mMeninggalMakassar.value = makassar?.get(2)?.status
                 mJmMeninggalMakassar.value = makassar?.get(2)?.total
 
+                mDateMakassar.value = makassar?.get(0)?.updated_at?.substring(0 , 10)
+
                 mLoading.value = false
 
             } catch (ex: Exception) {
@@ -124,7 +140,7 @@ class MainViewModel(private val covidRepository : CovidRepository , private val 
 
     }
 
-    fun getStatus() {
+    private fun getStatus() {
         viewModelScope.launch {
 
             mLoading.value = true
@@ -191,6 +207,44 @@ class MainViewModel(private val covidRepository : CovidRepository , private val 
             }
         }
 
+    }
+
+    private fun getGolongan() {
+        viewModelScope.launch {
+            try {
+                val golongan = covidRepository.getGolongan()
+                Log.println(Log.ASSERT , "golongan" , "$golongan")
+                golongan?.let {
+                    mIdentifikasi.value = it[0].status
+                }
+            } catch (ex : Exception) {
+                Log.println(Log.ASSERT , "golonganError" , "golongan error : $ex")
+            }
+        }
+    }
+
+    fun getResponse() {
+        viewModelScope.launch {
+            mLoading.value = true
+            try {
+                covidRepository.getResponse()
+                getIndonesia()
+                getMakassar()
+                getStatus()
+                mLoading.value = false
+                mDataloading.value = false
+            } catch (ex: Exception) {
+                mLoading.value = true
+                mDataloading.value = false
+                mMessage.value = ex.toString()
+            }
+
+        }
+    }
+
+    fun btnIdentification(view: View) {
+        val actionIdentification = MainFragmentDirections.actionMainFragmentToIdentifikasiFragment()
+        view.findNavController().navigate(actionIdentification)
     }
 
 }

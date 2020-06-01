@@ -40,13 +40,29 @@ class CovidRemoteDataStore(private val covidService: CovidService) : CovidDataSt
         throw Exception("Terjadi kesalahan saat melakukan request data, status error ${response.code()}")
     }
 
+    override suspend fun getGolongan(): List<Golongan>? {
+        TODO()
+    }
+
     override suspend fun addIndonesia(indonesia: List<Indonesia>?) {}
+
+    override suspend fun updateIndonesia(indonesia: List<Indonesia>?) {}
 
     override suspend fun addMakassar(makassar: List<Makassar>?) {}
 
+    override suspend fun updateMakassar(makassar: List<Makassar>?) {}
+
     override suspend fun addKasus(kasus: List<Kasus>?) {}
+
+    override suspend fun updateKasus(kasus: List<Kasus>?) {}
 
     override suspend fun addSembuh(sembuh: List<Sembuh>?) {}
 
+    override suspend fun updateSembuh(sembuh: List<Sembuh>?) {}
+
     override suspend fun addMeninggal(meninggal: List<Meninggal>?) {}
+
+    override suspend fun updateMeninggal(meninggal: List<Meninggal>?) {}
+
+    override suspend fun addGolongan(golongan: List<Golongan>? , golongan1: List<Golongan>?) {}
 }
