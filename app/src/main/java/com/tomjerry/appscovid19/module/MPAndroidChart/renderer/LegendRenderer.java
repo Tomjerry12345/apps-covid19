@@ -12,7 +12,6 @@ import com.tomjerry.appscovid19.module.MPAndroidChart.components.LegendEntry;
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.ChartData;
 import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.IBarDataSet;
 import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.IDataSet;
-import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.IPieDataSet;
 import com.tomjerry.appscovid19.module.MPAndroidChart.utils.ColorTemplate;
 import com.tomjerry.appscovid19.module.MPAndroidChart.utils.FSize;
 import com.tomjerry.appscovid19.module.MPAndroidChart.utils.Utils;
@@ -121,34 +120,6 @@ public class LegendRenderer extends Renderer {
                     }
 
                     if (bds.getLabel() != null) {
-                        // add the legend description label
-                        computedEntries.add(new LegendEntry(
-                                dataSet.getLabel(),
-                                Legend.LegendForm.NONE,
-                                Float.NaN,
-                                Float.NaN,
-                                null,
-                                ColorTemplate.COLOR_NONE
-                        ));
-                    }
-
-                } else if (dataSet instanceof IPieDataSet) {
-
-                    IPieDataSet pds = (IPieDataSet) dataSet;
-
-                    for (int j = 0; j < clrs.size() && j < entryCount; j++) {
-
-                        computedEntries.add(new LegendEntry(
-                                pds.getEntryForIndex(j).getLabel(),
-                                dataSet.getForm(),
-                                dataSet.getFormSize(),
-                                dataSet.getFormLineWidth(),
-                                dataSet.getFormLineDashEffect(),
-                                clrs.get(j)
-                        ));
-                    }
-
-                    if (pds.getLabel() != null) {
                         // add the legend description label
                         computedEntries.add(new LegendEntry(
                                 dataSet.getLabel(),

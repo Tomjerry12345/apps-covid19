@@ -26,4 +26,7 @@
     <string name="selesai">Selesai</string>
     <string name="indonesia">Indonesia</string>
     <string name="makassar">Makassar</string>
+    <string name="hasil">Hasil</string>
+    <string name="ok">OK</string>
+    <string name="default_text">Bebas Covid</string>
 </resources>

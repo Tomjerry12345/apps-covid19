@@ -15,7 +15,7 @@ import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.IBarDa
 import com.tomjerry.appscovid19.module.MPAndroidChart.renderer.HorizontalBarChartRenderer;
 import com.tomjerry.appscovid19.module.MPAndroidChart.renderer.XAxisRendererHorizontalBarChart;
 import com.tomjerry.appscovid19.module.MPAndroidChart.renderer.YAxisRendererHorizontalBarChart;
-import com.tomjerry.appscovid19.module.MPAndroidChart.utils.HorizontalViewPortHandler;
+//import com.tomjerry.appscovid19.module.MPAndroidChart.utils.HorizontalViewPortHandler;
 import com.tomjerry.appscovid19.module.MPAndroidChart.utils.MPPointF;
 import com.tomjerry.appscovid19.module.MPAndroidChart.utils.TransformerHorizontalBarChart;
 import com.tomjerry.appscovid19.module.MPAndroidChart.utils.Utils;
@@ -43,7 +43,7 @@ public class HorizontalBarChart extends BarChart {
     @Override
     protected void init() {
 
-        mViewPortHandler = new HorizontalViewPortHandler();
+//        mViewPortHandler = new HorizontalViewPortHandler();
 
         super.init();
 

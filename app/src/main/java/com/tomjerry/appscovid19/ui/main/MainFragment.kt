@@ -79,9 +79,8 @@ class MainFragment : Fragment() {
             }
         })
 
-        try {
-            scroll.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-                Log.println(Log.ASSERT , "scroll_position", "${scrollY}")
+            scroll.setOnScrollChangeListener { _, _, scrollY, _, _ ->
+                Log.println(Log.ASSERT , "scroll_position", "$scrollY")
                 if(scrollY >= 120 && selection) {
                     chart.animateY(3000)
                     selection = false
@@ -89,17 +88,7 @@ class MainFragment : Fragment() {
                 }
             }
 
-        } catch (ex: Exception) {
-            Log.println(Log.ASSERT , "ErrorScroll" , "$ex")
-        }
 
-
-//        scroll.viewTreeObserver.addOnScrollChangedListener {
-//            if(scroll.scrollY >= 120 && selection) {
-//                chart.animateY(3000)
-//                selection = false
-//            }
-//        }
     }
 
 }

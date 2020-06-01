@@ -25,7 +25,6 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import com.tomjerry.appscovid19.module.MPAndroidChart.animation.ChartAnimator;
-import com.tomjerry.appscovid19.module.MPAndroidChart.animation.Easing;
 import com.tomjerry.appscovid19.module.MPAndroidChart.animation.Easing.EasingFunction;
 import com.tomjerry.appscovid19.module.MPAndroidChart.components.Description;
 import com.tomjerry.appscovid19.module.MPAndroidChart.components.IMarker;

@@ -296,7 +296,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/text3_3"
-            android:layout_width="@dimen/width_190"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:text="@string/pernah_memiliki_riwayat_penyakit_sedang_menderita_penyakit_pneumonia_paru_paru_basah_ispa_infeksi_saluran_pernapasan"
             android:textSize="@dimen/text_size_12"

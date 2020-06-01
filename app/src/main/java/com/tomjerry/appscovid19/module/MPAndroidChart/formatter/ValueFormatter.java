@@ -3,8 +3,6 @@ package com.tomjerry.appscovid19.module.MPAndroidChart.formatter;
 import com.tomjerry.appscovid19.module.MPAndroidChart.components.AxisBase;
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.BarEntry;
 import com.tomjerry.appscovid19.module.MPAndroidChart.data.Entry;
-import com.tomjerry.appscovid19.module.MPAndroidChart.data.PieEntry;
-import com.tomjerry.appscovid19.module.MPAndroidChart.data.RadarEntry;
 import com.tomjerry.appscovid19.module.MPAndroidChart.utils.ViewPortHandler;
 
 /**
@@ -91,26 +89,6 @@ public abstract class ValueFormatter implements IAxisValueFormatter, IValueForma
         return getFormattedValue(entry.getY());
     }
 
-    /**
-     * Used to draw pie value labels, calls {@link #getFormattedValue(float)} by default.
-     *
-     * @param value    float to be formatted, may have been converted to percentage
-     * @param pieEntry slice being labeled, contains original, non-percentage Y value
-     * @return formatted string label
-     */
-    public String getPieLabel(float value, PieEntry pieEntry) {
-        return getFormattedValue(value);
-    }
-
-    /**
-     * Used to draw radar value labels, calls {@link #getFormattedValue(float)} by default.
-     *
-     * @param radarEntry entry being labeled
-     * @return formatted string label
-     */
-    public String getRadarLabel(RadarEntry radarEntry) {
-        return getFormattedValue(radarEntry.getY());
-    }
 
 }
 

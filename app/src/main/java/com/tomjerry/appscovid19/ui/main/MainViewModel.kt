@@ -1,6 +1,5 @@
 package com.tomjerry.appscovid19.ui.main
 
-import android.content.Context
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData

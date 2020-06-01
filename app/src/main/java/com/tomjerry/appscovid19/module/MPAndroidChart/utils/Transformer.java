@@ -4,10 +4,6 @@ import android.graphics.Matrix;
 import android.graphics.Path;
 import android.graphics.RectF;
 
-import com.tomjerry.appscovid19.module.MPAndroidChart.data.Entry;
-import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.ILineDataSet;
-import com.tomjerry.appscovid19.module.MPAndroidChart.interfaces.datasets.IScatterDataSet;
-
 import java.util.List;
 
 /**
@@ -81,85 +77,6 @@ public class Transformer {
             mMatrixOffset.postScale(1.0f, -1.0f);
         }
     }
-
-    protected float[] valuePointsForGenerateTransformedValuesScatter = new float[1];
-
-    /**
-     * Transforms an List of Entry into a float array containing the x and
-     * y values transformed with all matrices for the SCATTERCHART.
-     *
-     * @param data
-     * @return
-     */
-    public float[] generateTransformedValuesScatter(IScatterDataSet data, float phaseX,
-                                                    float phaseY, int from, int to) {
-
-        final int count = (int) ((to - from) * phaseX + 1) * 2;
-
-        if (valuePointsForGenerateTransformedValuesScatter.length != count) {
-            valuePointsForGenerateTransformedValuesScatter = new float[count];
-        }
-        float[] valuePoints = valuePointsForGenerateTransformedValuesScatter;
-
-        for (int j = 0; j < count; j += 2) {
-
-            Entry e = data.getEntryForIndex(j / 2 + from);
-
-            if (e != null) {
-                valuePoints[j] = e.getX();
-                valuePoints[j + 1] = e.getY() * phaseY;
-            } else {
-                valuePoints[j] = 0;
-                valuePoints[j + 1] = 0;
-            }
-        }
-
-        getValueToPixelMatrix().mapPoints(valuePoints);
-
-        return valuePoints;
-    }
-
-    protected float[] valuePointsForGenerateTransformedValuesBubble = new float[1];
-
-    protected float[] valuePointsForGenerateTransformedValuesLine = new float[1];
-
-    /**
-     * Transforms an List of Entry into a float array containing the x and
-     * y values transformed with all matrices for the LINECHART.
-     *
-     * @param data
-     * @return
-     */
-    public float[] generateTransformedValuesLine(ILineDataSet data,
-                                                 float phaseX, float phaseY,
-                                                 int min, int max) {
-
-        final int count = ((int) ((max - min) * phaseX) + 1) * 2;
-
-        if (valuePointsForGenerateTransformedValuesLine.length != count) {
-            valuePointsForGenerateTransformedValuesLine = new float[count];
-        }
-        float[] valuePoints = valuePointsForGenerateTransformedValuesLine;
-
-        for (int j = 0; j < count; j += 2) {
-
-            Entry e = data.getEntryForIndex(j / 2 + min);
-
-            if (e != null) {
-                valuePoints[j] = e.getX();
-                valuePoints[j + 1] = e.getY() * phaseY;
-            } else {
-                valuePoints[j] = 0;
-                valuePoints[j + 1] = 0;
-            }
-        }
-
-        getValueToPixelMatrix().mapPoints(valuePoints);
-
-        return valuePoints;
-    }
-
-    protected float[] valuePointsForGenerateTransformedValuesCandle = new float[1];
 
     /**
      * transform a path with all the given matrices VERY IMPORTANT: keep order
