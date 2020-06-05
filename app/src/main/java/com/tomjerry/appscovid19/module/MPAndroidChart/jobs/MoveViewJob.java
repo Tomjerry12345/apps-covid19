@@ -45,7 +45,7 @@ public class MoveViewJob extends ViewPortJob {
         mTrans.pointValuesToPixel(pts);
         mViewPortHandler.centerViewPort(pts, view);
 
-        this.recycleInstance(this);
+        recycleInstance(this);
     }
 
     @Override

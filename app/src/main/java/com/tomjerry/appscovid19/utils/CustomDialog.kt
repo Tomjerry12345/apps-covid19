@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import com.tomjerry.appscovid19.R
 import com.tomjerry.appscovid19.ui.identifikasi.IdentifikasiFragmentDirections
 import kotlinx.android.synthetic.main.custom_dialog.*
+import kotlinx.android.synthetic.main.custom_dialog.btn_ok as btn_ok1
 
 class CustomDialog {
 
@@ -19,7 +20,7 @@ class CustomDialog {
 
         dialog.text2.text = msg
 
-        dialog.btn_ok.setOnClickListener {
+        dialog.btn_ok1.setOnClickListener {
             val actionIdentification = IdentifikasiFragmentDirections.actionIdentifikasiFragmentToMainFragment()
             view.findNavController().navigate(actionIdentification)
             dialog.dismiss()

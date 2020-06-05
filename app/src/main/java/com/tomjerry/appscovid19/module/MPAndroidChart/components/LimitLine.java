@@ -143,7 +143,7 @@ public class LimitLine extends ComponentBase {
      * @return
      */
     public boolean isDashedLineEnabled() {
-        return mDashPathEffect == null ? false : true;
+        return mDashPathEffect != null;
     }
 
     /**

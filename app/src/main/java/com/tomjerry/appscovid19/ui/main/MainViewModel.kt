@@ -78,7 +78,7 @@ class MainViewModel(private val covidRepository : CovidRepository) : ViewModel()
     }
 
     private fun getIndonesia() {
-        viewModelScope.launch() {
+        viewModelScope.launch {
 
             mLoading.value = true
 
@@ -110,7 +110,7 @@ class MainViewModel(private val covidRepository : CovidRepository) : ViewModel()
     }
 
     private fun getMakassar() {
-        viewModelScope.launch() {
+        viewModelScope.launch {
 
             mLoading.value = true
 

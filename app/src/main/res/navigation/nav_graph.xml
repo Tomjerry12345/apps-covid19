@@ -26,6 +26,8 @@
         tools:layout="@layout/identifikasi_fragment" >
         <action
             android:id="@+id/action_identifikasiFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
